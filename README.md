@@ -35,3 +35,6 @@
 - Removed redundant spaces
 - Removed empty strings
 - Removed strings with length less than 20
+
+## Training
+- Next sentence prediction
