@@ -9,7 +9,8 @@ def generate_jsonl_file(file_path):
 
     data = data.split('\n')
     data = [re.sub('\s+', ' ', s) for s in data if s]
-    data = [s[1:] for s in data if s and len(s) > 20 and s[0] == ' ']
+    data = [s[1:] if s[0] == ' ' else s for s in data ]
+    data = [s for s in data if s and len(s) > 20]
 
     print('Length of List',len(data))
 
