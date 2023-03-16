@@ -11,7 +11,7 @@
 - The model name can be set via suffix
 
 ## Resume Stream   
-```openai api fine_tunes.follow -i <job_id>```
+```openai api fine_tunes.follow -i <JOB_ID>```
 - Streams the process in the command line
 - This information includes
     - job_id
@@ -25,8 +25,11 @@
 ```openai api fine_tunes.list```
 
 ## Retreive state of fine-tune   
-```openai api fine_tunes.get -i <job_id>```
+```openai api fine_tunes.get -i <JOB_ID>```
 - "fine_tuned_model" field is populated if the status is complete
+
+## Cancel fine-tune   
+```openai api fine_tunes.cancel -i <JOB_ID>```
 
 ## Prepare the dataset
 ```python3 prepare.py```

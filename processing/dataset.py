@@ -7,10 +7,14 @@ def generate_jsonl_file(file_path):
 
     print('Length of Document', len(data))
 
+    # Split based on newline
     data = data.split('\n')
+    # Remove redundant spaces
     data = [re.sub('\s+', ' ', s) for s in data if s]
+    # Remove space at the beginning of the string
     data = [s[1:] if s[0] == ' ' else s for s in data ]
-    data = [s for s in data if s and len(s) > 20]
+    # Remove strings that are too short
+    data = [s for s in data if len(s) > 20]
 
     print('Length of List',len(data))
 
@@ -22,7 +26,8 @@ def generate_jsonl_file(file_path):
                 break
             prompt = data[i]
             completion = data[i+1]
-            json_data = {'prompt': prompt, 'completion': completion}
-            json.dump(json_data, f)
-            f.write('\n')
+            if 'GPT' in prompt or 'GPT' in completion:
+                json_data = {'prompt': prompt, 'completion': completion}
+                json.dump(json_data, f)
+                f.write('\n')
     
